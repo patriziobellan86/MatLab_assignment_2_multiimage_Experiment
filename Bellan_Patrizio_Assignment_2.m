@@ -101,7 +101,8 @@ pause(2);
 % parameters setting
 % asking for the numer of trials
 while true
-    [string,terminatorChar] = GetEchoString(win, 'How many trials?', 50, 50, [100 100 100], [250 250 250],13); %  useKbCheck, varargin)
+%     [string,terminatorChar] = GetEchoString(win, 'How many trials?', 50, 50, [100 100 100], [250 250 250],'Return'); %  useKbCheck, varargin)
+    [string] = GetEchoString(win, 'How many trials?', 50, 50, [100 100 100], [250 250 250]); %,'Return'); %  useKbCheck, varargin)
     if isstrprop(string, 'digit') 
         numTrials = str2num(string);
         break;
@@ -110,7 +111,8 @@ while true
 end
 
 % asking for the partecipant's name
-[string,terminatorChar] = GetEchoString(win, 'Partecipant name?', 50, 50, [100 100 100], [250 250 250],13); %  useKbCheck, varargin)
+% [string,terminatorChar] = GetEchoString(win, 'Partecipant name?', 50, 50, [100 100 100], [250 250 250],'Return'); %  useKbCheck, varargin)
+[string] = GetEchoString(win, 'Partecipant name?', 50, 50, [100 100 100], [250 250 250]); %,'Return'); %  useKbCheck, varargin)
 partecipant_name = string;
 Screen(win,'flip');
 
@@ -244,7 +246,8 @@ pause(2);
 [current_folder name ext] = fileparts(mfilename('fullpath'));
 filename = [current_folder partecipant_name];
 str = sprintf('press "y" to save data in \n %s',filename);
-[string,terminatorChar] = GetEchoString(win, str, 50, 50, [100 100 100], [250 250 250],13);
+[string] = GetEchoString(win, str, 50, 50, [100 100 100], [250 250 250]); %,'Return');
+% [string,terminatorChar] = GetEchoString(win, str, 50, 50, [100 100 100], [250 250 250],'Return');
 
 if string == 'y'
     % Save in excel format
