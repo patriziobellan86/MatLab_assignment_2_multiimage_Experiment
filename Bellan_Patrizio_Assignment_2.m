@@ -229,13 +229,13 @@ for counterTrial=1:numTrials
     response(counterTrial).RT = endTime - startTime;
     response(counterTrial).accuracy = accuracy;
     
-    str = sprintf('Accuracy: %f \n avarage RT: %f msec', ...
-        num2str(response(counterTrial).RT), ...
-        num2str(response(counterTrial).accuracy));
+    str = sprintf('Accuracy: %s \n avarage RT: %s msec', ...
+        num2str(response(counterTrial).RT, '%0.2f' ), ...
+        num2str(response(counterTrial).accuracy, '%0.2f' ));
     
     DrawFormattedText(win, str, 'center','center');
     Screen(win,'flip');
-    pause(2); 
+    pause(5); 
 end
 
 DrawFormattedText(win, 'end of the experiment', 'center','center');
