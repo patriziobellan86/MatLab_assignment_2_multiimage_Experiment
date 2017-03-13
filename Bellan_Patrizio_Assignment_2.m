@@ -42,10 +42,10 @@ dimImg = [dimImg dimImg];
 
 % grid images coords
 myCounter=0;
-for x=border:dimImg(1)+border:screen_v
-% for x=border+(screen_h-screen_v)/2:dimImg(1)+border:screen_v    
+
+for x=border+((screen_h-screen_v)/2):dimImg(1)+border:screen_v+border+((screen_h-screen_v)/2)
     for y=border:dimImg(1)+border:screen_v
-        if x+dimImg(1) < screen_v & y+dimImg(1) < screen_v
+        if x+dimImg(1) <= (screen_v+border+((screen_h-screen_v)/2)) & y+dimImg(1) <= screen_v
             myCounter=myCounter+1;
             myRectsGrid(myCounter,:)=[x y x+dimImg(1) y+dimImg(1)];
         end
@@ -245,7 +245,7 @@ pause(2);
 % data save
 [current_folder name ext] = fileparts(mfilename('fullpath'));
 filename = [current_folder partecipant_name];
-str = sprintf('press "y" to save data in \n %s',filename);
+str = sprintf('press "y" to save data in\n%s',filename);
 [string] = GetEchoString(win, str, 50, 50, [100 100 100], [250 250 250]); %,'Return');
 % [string,terminatorChar] = GetEchoString(win, str, 50, 50, [100 100 100], [250 250 250],'Return');
 
